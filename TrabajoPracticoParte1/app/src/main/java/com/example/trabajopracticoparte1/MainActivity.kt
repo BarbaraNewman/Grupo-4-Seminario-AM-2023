@@ -40,21 +40,17 @@ class MainActivity : AppCompatActivity() {
             var mensaje = "Iniciar Sesion"
             // Obtenemos el dato que se ingreso en la vista
             var nombreUsuario = etUsuario.text.toString()
+            
             if (nombreUsuario.isEmpty() || etPass.text.toString().isEmpty()) {
                 mensaje += " - Faltan Datos"
             } else {
                 mensaje += " - Datos OK"
                 // Verificamos si esta tildado el CechBox
                 if (cbRecordar.isChecked)
-                    mensaje += "- Recordar Usuario"
-
-                // Indicamos a que pantalla queremos ir
-                val intentMain = Intent(this, MainActivity::class.java)
-                // Agregamos datos que queremos pasar a la proxima pantalla
-                intentMain.putExtra("nombre", nombreUsuario)
-                // Cambiamos de pantalla
+                    mensaje += "- Recordar Usuario"                
+                val intentMain = Intent(this, MainActivity::class.java)                
+                intentMain.putExtra("nombre", nombreUsuario)               
                 startActivity(intentMain)
-                // Eliminamos la Activity actual para sacarla de la Pila
                 finish()
             }
         }
