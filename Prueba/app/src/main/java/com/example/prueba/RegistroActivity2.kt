@@ -1,6 +1,5 @@
 package com.example.prueba
 
-import
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -38,7 +37,7 @@ class RegistroActivity2 : AppCompatActivity() {
             var mensaje = "Registrar"
             // Obtenemos el dato que se ingreso en la vista
             var nombreUsuario = etUsuario.text.toString()
-            if(nombreUsuario.isEmpty() || etPass.text.toString().isEmpty()){
+            if(nombreUsuario.isEmpty() || etPass.text.toString().isEmpty() || etCorreo.text.toString().isEmpty()){
                 mensaje+= " - Faltan Datos"
             }else {
                 mensaje+= " - Datos OK"
