@@ -25,6 +25,9 @@ class RegistroActivity : AppCompatActivity() {
 
         btRegistrar.setOnClickListener {
             Toast.makeText(this,"Usuario Creado", Toast.LENGTH_SHORT).show()
+            val intentMain = Intent(this, MainActivity::class.java)
+            startActivity(intentMain)
+            finish()
         }
-    }
+        }
 }
