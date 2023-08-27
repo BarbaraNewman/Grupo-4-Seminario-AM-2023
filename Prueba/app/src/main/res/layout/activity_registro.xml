@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/imagen1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imagen2"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".RegistroActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#FBF9F9"
         android:text="Ingresar Usuario"
         android:textSize="20sp" />
 
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="#000000"
+        android:textColor="#FBF9F9"
         android:text="Ingresar Contraseña" />
 
     <EditText
@@ -40,38 +40,36 @@
         android:textSize="15sp"
         tools:text="contraseña" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#FBF9F9"
+        android:text="Confirmar Contraseña" />
+
+    <EditText
+        android:id="@+id/PassC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPassword"
+        android:textSize="15sp"
+        tools:text="contraseña" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:weightSum="1">
-
         <Button
             android:id="@+id/btRegistrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
-            android:backgroundTint="#AB957DC1"
+            android:backgroundTint="#DDD19A56"
             android:textColor="#FBF9F9"
-            android:text="Crear Usuario"
-             />
+            android:text="Registrar Usuario" />
 
-        <Button
-            android:id="@+id/btIniciar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5"
-            android:backgroundTint="#AB957DC1"
-            android:textColor="#FBF9F9"
-            android:text="Iniciar Sesion" />
 
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/cbRecordar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FBF9F9"
-        android:text="Recordar Usuario" />
-
-</LinearLayout>
-
+    </LinearLayout>
