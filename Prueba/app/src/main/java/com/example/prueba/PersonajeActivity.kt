@@ -18,7 +18,7 @@ class PersonajeActivity : AppCompatActivity() {
         btAtras.setOnClickListener {
 
             val intentMain = Intent(this, MainActivity::class.java)
-            startActivity()
+            startActivity(intentMain)
             finish()
         }
     }
