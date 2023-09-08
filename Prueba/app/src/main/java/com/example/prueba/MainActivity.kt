@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         btRegistrar.setOnClickListener{
             val intentRegistro = Intent(this, RegistroActivity::class.java)
-                startActivity(intentRegistro)
-                finish()
+            startActivity(intentRegistro)
+            finish()
         }
 
 
@@ -55,5 +55,6 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
+
     }
 }
