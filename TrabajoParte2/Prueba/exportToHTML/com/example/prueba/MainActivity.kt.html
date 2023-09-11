@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.prueba</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.Button</span>
+<span class="s1">import android.widget.CheckBox</span>
+<span class="s1">import android.widget.EditText</span>
+
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">etUsuario: EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">etPass: EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">cbRecordar: CheckBox</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">btRegistrar: Button</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">btIniciar: Button</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+
+        <span class="s1">etUsuario = findViewById(R.id.etUsuario)</span>
+        <span class="s1">etPass = findViewById(R.id.etPass)</span>
+        <span class="s1">cbRecordar = findViewById(R.id.cbRecordar)</span>
+        <span class="s1">btIniciar = findViewById(R.id.btIniciar)</span>
+        <span class="s1">btRegistrar = findViewById(R.id.btRegistrar)</span>
+
+        <span class="s0">var </span><span class="s1">preferencias = getSharedPreferences(resources.getString((R.string.credenciales))</span><span class="s0">, </span><span class="s1">MODE_PRIVATE)</span>
+        <span class="s0">var </span><span class="s1">usuarioGuardado = preferencias.getString(resources.getString(R.string.nombre_usuario)</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">passwordGuardado = preferencias.getString(resources.getString(R.string.password_usuario)</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+
+        <span class="s0">if</span><span class="s1">(usuarioGuardado!= </span><span class="s0">null </span><span class="s1">&amp;&amp; passwordGuardado!= </span><span class="s0">null</span><span class="s1">){</span>
+            <span class="s1">startHomeActivity(usuarioGuardado)</span>
+        <span class="s1">}</span>
+
+        <span class="s1">btRegistrar.setOnClickListener{</span>
+            <span class="s0">val </span><span class="s1">intentRegistro = Intent(</span><span class="s0">this, </span><span class="s1">RegistroActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(intentRegistro)</span>
+                <span class="s1">finish()</span>
+        <span class="s1">}</span>
+
+        <span class="s1">btIniciar.setOnClickListener {</span>
+            <span class="s0">var </span><span class="s1">mensaje = </span><span class="s2">&quot;Iniciar Sesion&quot;</span>
+            <span class="s0">var </span><span class="s1">nombreUsuario = etUsuario.text.toString()</span>
+            <span class="s0">var </span><span class="s1">passwordUsuario = etPass.text.toString()</span>
+
+            <span class="s0">if</span><span class="s1">(nombreUsuario.isEmpty() || passwordUsuario.isEmpty()){</span>
+                <span class="s1">mensaje+= </span><span class="s2">&quot; - Faltan Datos&quot;</span>
+            <span class="s1">}</span><span class="s0">else </span><span class="s1">{</span>
+                <span class="s1">mensaje+= </span><span class="s2">&quot; - Datos OK&quot;</span>
+
+                <span class="s0">if </span><span class="s1">(cbRecordar.isChecked) {</span>
+                    <span class="s0">var </span><span class="s1">preferencias = getSharedPreferences(resources.getString((R.string.credenciales))</span><span class="s0">, </span><span class="s1">MODE_PRIVATE)</span>
+                    <span class="s1">preferencias.edit().putString(resources.getString(R.string.nombre_usuario)</span><span class="s0">, </span><span class="s1">nombreUsuario).apply()</span>
+                    <span class="s1">preferencias.edit().putString(resources.getString(R.string.password_usuario)</span><span class="s0">, </span><span class="s1">passwordUsuario).apply()</span>
+                <span class="s1">}</span>
+                <span class="s1">startHomeActivity(nombreUsuario)</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">startHomeActivity(usuarioGuardado: String) {</span>
+        <span class="s0">val </span><span class="s1">intentMain = Intent(</span><span class="s0">this, </span><span class="s1">HomeActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+        <span class="s1">intentMain.putExtra(resources.getString(R.string.nombre_usuario)</span><span class="s0">, </span><span class="s1">usuarioGuardado)</span>
+        <span class="s1">startActivity(intentMain)</span>
+        <span class="s1">finish()</span>
+    <span class="s1">}</span>
+    <span class="s1">}</span>
+
+
+</pre>
+</body>
+</html>
