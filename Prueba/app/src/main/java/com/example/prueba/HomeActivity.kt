@@ -2,6 +2,7 @@ package com.example.prueba
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,13 +15,12 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        lateinit var toolbar: Toolbar
 
-        supportActionBar?.apply {
-            title = "Personajes"
-            setDisplayHomeAsUpEnabled(true)
-        }
+        toolbar = findViewById(R.id.toolbarv2)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Personajes"
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val recyclerview = findViewById<RecyclerView>(R.id.rvHome)
 

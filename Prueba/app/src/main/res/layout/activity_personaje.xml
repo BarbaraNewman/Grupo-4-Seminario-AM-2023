@@ -13,15 +13,21 @@
       android:text="Aang"
       android:textSize="30sp"
       tools:layout_editor_absoluteX="168dp"
-      tools:layout_editor_absoluteY="59dp" />
+      tools:layout_editor_absoluteY="73dp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
 
   <ImageView
       android:id="@+id/imageAang"
       android:layout_width="243dp"
       android:layout_height="215dp"
-      app:srcCompat="@drawable/aang"
-      tools:layout_editor_absoluteX="84dp"
-      tools:layout_editor_absoluteY="124dp" />
+      android:layout_marginStart="84dp"
+      android:layout_marginTop="148dp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/aang" />
 
   <Button
       android:id="@+id/btAtras"
@@ -30,15 +36,24 @@
       android:layout_weight=".5"
       android:backgroundTint="#AB957DC1"
       android:textColor="#FBF9F9"
-      android:text="Atras" />
+      android:text="Atras"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
 
   <TextView
       android:layout_width="310dp"
       android:layout_height="235dp"
+      android:layout_marginStart="48dp"
+      android:layout_marginTop="392dp"
       android:text="Es un Nómada Aire nacido en el 12 del AG y el Avatar durante el conflicto de un siglo de duración conocido como la Guerra de los Cien Años. Su predecesor inmediato era el Avatar Roku, y su sucesor inmediato es el Avatar Korra."
       android:textSize="20sp"
-      tools:layout_editor_absoluteX="50dp"
-      tools:layout_editor_absoluteY="396dp"/>
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <include
+      layout="@layout/toolbar"></include>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
