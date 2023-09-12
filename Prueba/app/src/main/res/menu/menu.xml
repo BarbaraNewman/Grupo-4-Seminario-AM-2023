@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/ver_personajes"
+        android:title="Ver personajes"
+        android:icon="@drawable/baseline_person_24"
+        app:showAsAction="ifRoom"
+
+        <item
+            android:id="@+id/cerrar_sesion"
+            android:title="Cerrar sesion"
+            android:icon="@drawable/baseline_power_settings_new_24"
+            app:showAsAction="ifRoom"
+
+
+
+
+
+</menu>

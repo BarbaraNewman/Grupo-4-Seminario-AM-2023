@@ -3,6 +3,8 @@ package com.example.prueba
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputBinding
 import android.widget.Button
@@ -61,6 +63,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//
+        when(item.itemId){
+            R.id.ver_personajes -> Toast.makeText(this,"Ver personajes", Toast.LENGTH_SHORT).show()
+            R.id.cerrar_sesion -> Toast.makeText(this, "Cerrar sesión",Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 //  FUNCIONALIDAD DEL TOOLBAR
 //    class MainActivity : AppCompatActivity() {
 //        private lateinit var binding: ActivityMainBinding
@@ -77,3 +93,4 @@ class MainActivity : AppCompatActivity() {
 //    }
 
 }
+
