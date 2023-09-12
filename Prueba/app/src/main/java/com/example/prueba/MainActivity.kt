@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
 
 
         var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
-        var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombreUser), "")
-        var passwordGuardado = preferencias.getString(resources.getString(R.string.passwordUser), "")
+        var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombreUser), null)
+        var passwordGuardado = preferencias.getString(resources.getString(R.string.passwordUser), null)
 
         if(usuarioGuardado != null && passwordGuardado != null){
                 startMainActivity(usuarioGuardado)
