@@ -17,10 +17,9 @@ class HomeActivity : AppCompatActivity() {
 
         lateinit var toolbar: Toolbar
 
-        toolbar = findViewById(R.id.toolbarv2)
+        toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Personajes"
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val recyclerview = findViewById<RecyclerView>(R.id.rvHome)
 
