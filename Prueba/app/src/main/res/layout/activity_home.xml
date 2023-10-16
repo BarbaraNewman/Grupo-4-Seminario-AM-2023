@@ -21,7 +21,4 @@
         layout="@layout/toolbar_menu">
     </include>
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,10 +23,10 @@ class PersonajeHolder(private val mList: List<Personaje>) : RecyclerView.Adapter
         val PersonajeHolder = mList[position]
 
         Glide.with(holder.itemView)
-            .load(PersonajeHolder.imagen)
+            .load(PersonajeHolder.image)
             .into(holder.imageView)
 
-        holder.textView.text = PersonajeHolder.personaje
+        holder.textView.text = PersonajeHolder.name
 
     }
 

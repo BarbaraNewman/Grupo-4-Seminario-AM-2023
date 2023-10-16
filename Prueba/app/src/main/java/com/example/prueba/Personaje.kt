@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "personajes_table")
 data class Personaje (
-    @ColumnInfo(name = "personaje") var personaje:String,
-    @ColumnInfo(name = "imagen") var imagen:String
-    ){
+    @ColumnInfo(name = "name") var name:String,
+    @ColumnInfo(name = "image") var image:String,
+
     @PrimaryKey(autoGenerate = true) var id:Int = 0
-}
+)

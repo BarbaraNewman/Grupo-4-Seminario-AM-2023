@@ -1,7 +1,5 @@
 package com.example.prueba
 
-
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,5 +19,6 @@ class PersonajeActivity : AppCompatActivity() {
             startActivity(intentMain)
             finish()
         }
+
     }
 }

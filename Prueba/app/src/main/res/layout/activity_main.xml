@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/imagen1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imagen1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
             android:backgroundTint="#AB957DC1"
             android:textColor="#FBF9F9"
             android:text="Crear Usuario"
-             />
+            />
 
         <Button
             android:id="@+id/btIniciar"
@@ -74,4 +74,3 @@
         android:text="Recordar Usuario" />
 
 </LinearLayout>
-
