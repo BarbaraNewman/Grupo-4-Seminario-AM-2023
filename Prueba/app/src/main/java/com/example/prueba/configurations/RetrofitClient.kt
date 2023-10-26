@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitClient {
 
-    //private val baseURL = "https://jsonplaceholder.typicode.com"
+    //private val baseURL = "https://pokeapi.co"
     //private val baseURL = "https://last-airbender-api.fly.dev"
     private val baseURL = "https://api.sampleapis.com"
 

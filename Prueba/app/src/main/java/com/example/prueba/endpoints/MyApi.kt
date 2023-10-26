@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface MyApi {
 
-    //@GET("/api/v1/characters")
+    //@GET("/api/v2/pokemon?limit=100000&offset=0")
     @GET("/avatar/characters")
     // fun getPersonajeAvatar() : List<Character>
     fun getPersonajeAvatar() : Call<List<Character>>

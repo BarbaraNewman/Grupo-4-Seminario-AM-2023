@@ -83,7 +83,9 @@ dependencies {
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-    
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
 
     implementation("androidx.room:room-runtime:2.3.0")
     annotationProcessor("androidx.room:room-compiler:2.3.0")

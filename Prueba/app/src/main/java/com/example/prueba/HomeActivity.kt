@@ -1,45 +1,55 @@
 package com.example.prueba
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.view.MenuItem
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.widget.Toolbar
-import android.util.Log
 import android.widget.TextView
-import androidx.lifecycle.lifecycleScope
-import com.example.prueba.R
 import com.example.prueba.configurations.RetrofitClient
 import com.example.prueba.dtos.Character
 import com.example.prueba.endpoints.MyApi
-import kotlinx.coroutines.launch
 import retrofit2.Call
+import android.util.Log
 import retrofit2.Callback
 import retrofit2.Response
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var tvServicioRest : TextView
+    private lateinit var tvServicioRest: TextView
+    lateinit var rvPersonajes: RecyclerView
+    lateinit var personajesAdapter: PersonajeHolder
+    lateinit var data: ArrayList<Personaje>
+    lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val recyclerview = findViewById<RecyclerView>(R.id.rvHome)
-        recyclerview.layoutManager = LinearLayoutManager(this)
+        rvPersonajes = findViewById(R.id.rvHome)
+        personajesAdapter = PersonajeHolder(getPersonajes(), this)
+        rvPersonajes.adapter = personajesAdapter
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        //supportActionBar!!.title = resources.getString(R.string.titulo)
+    }
+
+    fun getPersonajes(): MutableList<Personaje> {
+        //var personajes: MutableList<Personaje> = ArrayList()
+        //var bdd = DatabaseApp.getDatabase(this)
+        //personajes.addAll(bdd.personajeDao().getAll())
 
         val data = ArrayList<Personaje>()
-        val adapter = PersonajeHolder(data)
-        recyclerview.adapter = adapter
+        val adapter = PersonajeHolder(ArrayList(), this)
+        //recyclerview.adapter = adapter
 
         val api = RetrofitClient.retrofit.create(MyApi::class.java)
         val call = api.getPersonajeAvatar()
 
         call.enqueue(object : retrofit2.Callback<List<Character>> {
-            override fun onResponse(call: Call<List<Character>>, response: retrofit2.Response<List<Character>>) {
+            override fun onResponse(
+                call: Call<List<Character>>,
+                response: Response<List<Character>>
+            ) {
                 if (response.isSuccessful) {
                     val characters = response.body()
                     if (characters != null) {
@@ -52,13 +62,14 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
-
-
             override fun onFailure(call: Call<List<Character>>, t: Throwable) {
-                // Handle network errors
+                // Handle the failure or error here
                 Log.e("ERROR", t.message ?: "")
             }
-        })
+        }
+        )
+
+        return data
     }
 
 }
