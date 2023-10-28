@@ -2,74 +2,78 @@ package com.example.prueba
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.TextView
-import com.example.prueba.configurations.RetrofitClient
-import com.example.prueba.dtos.Character
-import com.example.prueba.endpoints.MyApi
-import retrofit2.Call
+import androidx.appcompat.widget.Toolbar
 import android.util.Log
-import retrofit2.Callback
-import retrofit2.Response
+import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import com.example.prueba.configurations.RetrofitClient
+import com.example.prueba.dtos.Bio
+import com.example.prueba.dtos.PhysicalDescription
+import com.example.prueba.endpoints.MyApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var tvServicioRest: TextView
-    lateinit var rvPersonajes: RecyclerView
-    lateinit var personajesAdapter: PersonajeHolder
-    lateinit var data: ArrayList<Personaje>
-    lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    private lateinit var tvServicioRest : TextView
+    private lateinit var adapter : PersonajeHolder
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        rvPersonajes = findViewById(R.id.rvHome)
-        personajesAdapter = PersonajeHolder(getPersonajes(), this)
-        rvPersonajes.adapter = personajesAdapter
+        lateinit var toolbar: Toolbar
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        //supportActionBar!!.title = resources.getString(R.string.titulo)
-    }
+        supportActionBar!!.title = "Personajes"
 
-    fun getPersonajes(): MutableList<Personaje> {
-        //var personajes: MutableList<Personaje> = ArrayList()
-        //var bdd = DatabaseApp.getDatabase(this)
-        //personajes.addAll(bdd.personajeDao().getAll())
+
+        val recyclerview = findViewById<RecyclerView>(R.id.rvHome)
+
+        recyclerview.layoutManager = LinearLayoutManager(this)
 
         val data = ArrayList<Personaje>()
-        val adapter = PersonajeHolder(ArrayList(), this)
-        //recyclerview.adapter = adapter
 
         val api = RetrofitClient.retrofit.create(MyApi::class.java)
         val call = api.getPersonajeAvatar()
+        val adapter = PersonajeHolder(data, this)
+        recyclerview.adapter = adapter
 
-        call.enqueue(object : retrofit2.Callback<List<Character>> {
-            override fun onResponse(
-                call: Call<List<Character>>,
-                response: Response<List<Character>>
-            ) {
+        // Corrutina para la llamada de la API
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val response = api.getPersonajeAvatar().execute()
                 if (response.isSuccessful) {
                     val characters = response.body()
                     if (characters != null) {
                         val personajes = characters.map { character ->
-                            Personaje(character.name ?: "", character.image ?: "")
-                        }
-                        data.addAll(personajes)
-                        adapter.notifyDataSetChanged()
-                    }
-                }
-            }
+                            val physicalDescription = character.physicalDescription ?: PhysicalDescription("", "", "", "")
 
-            override fun onFailure(call: Call<List<Character>>, t: Throwable) {
-                // Handle the failure or error here
-                Log.e("ERROR", t.message ?: "")
+                            Personaje(
+                                character.name ?: "",
+                                character.image ?: "",
+                                physicalDescription
+                            )
+                        }
+
+                        // Actualiza la vista
+                        launch(Dispatchers.Main) {
+                            data.addAll(personajes)
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+                } else {
+                    Log.e("ERROR", "ERROR RESPUESTA API")
+                }
+            } catch (e: Exception) {
+                // Otro errror
+                Log.e("ERROR", e.message ?: "")
             }
         }
-        )
-
-        return data
     }
 
 }

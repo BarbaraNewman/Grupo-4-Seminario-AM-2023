@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
+    android:background="@drawable/imagen1"
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
@@ -15,12 +16,13 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/etUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etUsuario"
-        android:textSize="15sp"
         android:layout_margin="10dp"
-        tools:text="Nombre de Usuario"/>
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        tools:text="Nombre de Usuario" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,19 +31,21 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/etPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etPass"
-        android:textSize="15sp"
         android:layout_margin="10dp"
         android:inputType="textPassword"
-        tools:text="contraseña"/>
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        tools:text="contraseña" />
 
     <CheckBox
         android:id="@+id/cbRecordar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recordar Usuario"/>
+        android:text="Recordar Usuario"
+        android:textColor="@color/white" />
     <LinearLayout
         android:weightSum="1"
         android:layout_width="wrap_content"

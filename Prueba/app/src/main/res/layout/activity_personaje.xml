@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondoappaire"
+    android:background="@drawable/img"
     tools:context=".PersonajeActivity">
 
   <TextView
@@ -20,14 +20,13 @@
 
   <ImageView
       android:id="@+id/imageAang"
-      android:layout_width="243dp"
-      android:layout_height="215dp"
-      android:layout_marginStart="84dp"
-      android:layout_marginTop="148dp"
+      android:layout_width="233dp"
+      android:layout_height="221dp"
+      android:layout_marginStart="92dp"
+      android:layout_marginTop="92dp"
       app:layout_constraintBaseline_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/aang" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   <Button
       android:id="@+id/btAtras"
@@ -41,12 +40,96 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"/>
 
+
   <TextView
-      android:layout_width="310dp"
-      android:layout_height="235dp"
+      android:id="@+id/txtNombre"
+      android:layout_width="325dp"
+      android:layout_height="38dp"
       android:layout_marginStart="48dp"
-      android:layout_marginTop="392dp"
-      android:text="Es un Nómada Aire nacido en el 12 del AG y el Avatar durante el conflicto de un siglo de duración conocido como la Guerra de los Cien Años. Su predecesor inmediato era el Avatar Roku, y su sucesor inmediato es el Avatar Korra."
+      android:layout_marginTop="348dp"
+      android:text="Nombre"
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/txtHairColor"
+      android:layout_width="215dp"
+      android:layout_height="85dp"
+      android:layout_marginStart="164dp"
+      android:layout_marginTop="492dp"
+      android:text="Hair color"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/txtHairColor2"
+      android:layout_width="110dp"
+      android:layout_height="85dp"
+      android:layout_marginStart="68dp"
+      android:layout_marginTop="492dp"
+      android:text="Color de pelo:"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/txtGenero2"
+      android:layout_width="82dp"
+      android:layout_height="31dp"
+      android:layout_marginStart="68dp"
+      android:layout_marginTop="424dp"
+      android:text="Genero:"
+      android:textColor="@color/black"
+
+      android:textSize="20sp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/txtGenero"
+      android:layout_width="219dp"
+      android:layout_height="31dp"
+      android:layout_marginStart="148dp"
+      android:layout_marginTop="424dp"
+      android:text="Genero"
+      android:textColor="@color/black"
+
+      android:textSize="20sp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/txtEyeColor"
+      android:layout_width="223dp"
+      android:layout_height="82dp"
+      android:layout_marginStart="164dp"
+      android:layout_marginTop="600dp"
+      android:text="Eye color"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintBaseline_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/txtEyeColor2"
+      android:layout_width="108dp"
+      android:layout_height="83dp"
+      android:layout_marginStart="68dp"
+      android:layout_marginTop="600dp"
+      android:text="Color de ojos:"
+      android:textColor="@color/black"
       android:textSize="20sp"
       app:layout_constraintBaseline_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"

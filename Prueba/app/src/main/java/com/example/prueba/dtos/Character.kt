@@ -8,5 +8,7 @@ data class Character(
     //var allies:String
     val id: Int?,
     val name: String?,
-    val image: String?
+    val image: String?,
+    //val bio: Bio?
+    val physicalDescription: PhysicalDescription
 )
